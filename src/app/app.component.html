@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <button mat-button [matMenuTriggerFor]="appMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Welcome</span>
+  <span class="menu-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="settingsMenu">
+    <mat-icon>settings</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu #settingsMenu="matMenu">
+  <button mat-menu-item> Settings </button>
+  <button mat-menu-item> Help </button>
+</mat-menu>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item routerLink="/photos"> Photos </button>
+  <button mat-menu-item routerLink="/news"> News </button>
+</mat-menu>
+
+<router-outlet></router-outlet>
