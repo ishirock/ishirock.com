@@ -25,16 +25,21 @@
   .news-container {
       width: 100%;
       height: auto;
+      margin: 10px;
       background-color: white;
-      border: 1px solid rgba(111, 111, 111, 0.50);
   }
   
   .drawer-content {
-      padding: 2em 20em;
+      /*padding: 2em 20em;*/
+      display: flex;
+      width:60%;
       align-content: right;
+      padding-left: 100px;
+      flex-direction: column;
+      align-items: flex-start;
   }
   
-  .news-sidenav {
+  .drawer {
       padding: 20px;
   }
   

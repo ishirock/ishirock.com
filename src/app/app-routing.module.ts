@@ -6,6 +6,7 @@ import { PhotosComponent } from './photos/photos.component';
 const routes: Routes = [
   {path: 'photos', component: PhotosComponent},
   {path: 'news', component: NewsComponent},
+  {path: '', component: NewsComponent},
 ];
 
 @NgModule({

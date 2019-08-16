@@ -1,34 +1,42 @@
-<mat-drawer-container class="news-container" [hasBackdrop]="false">
-<mat-drawer #drawer [mode]="side" opened class="news-sidenav">
-    <mat-list class="list-nav">
-        <mat-list-item class="list-item" *ngFor="let source of mSources"
-            (click)="searchArticles(source.id);sidenav.close();">
-            <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ source.id +'.png)'}"
-                class="example-header-image"></div>
-            <span class="source-name"> {{source.name}}</span>
-        </mat-list-item>
-    </mat-list>
-</mat-drawer>
-<mat-drawer-content class="drawer-content" (click)="drawer.toggle()">
-    <mat-card class="news-card" *ngFor="let article of mArticles">
-        <mat-card-header>
-            <div mat-card-avatar
-                [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}"
-                class="example-header-image"></div>
-            <mat-card-title class="title">{{article.title}}</mat-card-title>
-            <mat-card-subtitle>{{article.source.name}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
-        <mat-card-content>
-            <p>
-                {{article.description}}
-            </p>
-        </mat-card-content>
-        <mat-card-actions class="action-buttons">
-            <a mat-button color="primary" href={{article.url}} target="_blank">
-                <mat-icon>visibility</mat-icon> More
-            </a>
-        </mat-card-actions>
-    </mat-card>
-</mat-drawer-content>
+<div class="container">
+    <h1>Latest News</h1>
+<button mat-raised-button (click)="drawer.toggle()">
+    News Sources
+</button>
+</div>
+<mat-drawer-container class="news-container" [hasBackdrop]="false" autosize>
+    <mat-drawer #drawer mode="side" class="drawer">
+        <mat-list class="list-nav">
+            <ng-container *ngFor="let source of mSources">
+                <mat-list-item class="list-item" *ngIf="source.category=='technology'"
+                    (click)="searchArticles(source.id);drawer.close();">
+                    <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ source.id +'.png)'}"
+                        class="header-image"></div>
+                    <span class="source-name"> {{source.name}}</span>
+                </mat-list-item>
+            </ng-container>
+        </mat-list>
+    </mat-drawer>
+    <mat-drawer-content class="drawer-content">
+        <mat-card class="news-card" *ngFor="let article of mArticles">
+            <mat-card-header>
+                <div mat-card-avatar
+                    [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}"
+                    class="example-header-image"></div>
+                <mat-card-title class="title">{{article.title}}</mat-card-title>
+                <mat-card-subtitle>{{article.source.name}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
+            <mat-card-content>
+                <p>
+                    {{article.description}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions class="action-buttons">
+                <a mat-button color="primary" href={{article.url}} target="_blank">
+                    <mat-icon>visibility</mat-icon> More
+                </a>
+            </mat-card-actions>
+        </mat-card>
+    </mat-drawer-content>
 </mat-drawer-container>
