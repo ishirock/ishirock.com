@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { NewsApiService} from './services/news-api.service';
@@ -24,6 +25,7 @@ import { NewsComponent } from './news/news.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    FlexLayoutModule,
   ],
   providers: [NewsApiService],
   bootstrap: [AppComponent, NewsComponent, PhotosComponent]
