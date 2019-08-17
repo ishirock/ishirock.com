@@ -1,9 +1,17 @@
-.example-spacer {
+.spacer {
     flex: 1 1 auto;
   }
   
   .news-card{
       margin-top: 4px;      
+  }
+
+  .head-card{
+      text-align: center;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      align-content: center;
+      vertical-align: top;
+      font-size: x-large;
   }
   
   .header-image { 
