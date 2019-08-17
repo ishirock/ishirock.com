@@ -28,7 +28,7 @@ import { NewsComponent } from './news/news.component';
     FlexLayoutModule,
   ],
   providers: [NewsApiService],
-  bootstrap: [AppComponent, NewsComponent, PhotosComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
 

@@ -3,7 +3,11 @@
   }
   
   .news-card{
-      margin-top: 4px;      
+    flex: 1 1 auto;
+    width: 60%;
+    align-content: center;
+    align-items: center;
+    margin: 5px;
   }
 
   .head-card{
@@ -23,7 +27,8 @@
   }
   
   .img-article{
-      height: 350px;
+    max-width: 450px;  
+    max-height: 350px;
   }
   
   .action-buttons{
@@ -38,11 +43,7 @@
   }
   
   .drawer-content {
-      /*padding: 2em 20em;*/
       display: flex;
-      width:60%;
-      align-content: right;
-      padding-left: 100px;
       flex-direction: column;
       align-items: flex-start;
   }
@@ -60,4 +61,8 @@
       background-color: #3f51b5;
       color: white;
   }
+
+  .toc-icon:hover{
+    cursor: pointer;
+}
   
