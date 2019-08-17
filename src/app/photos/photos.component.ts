@@ -12,6 +12,7 @@ export class PhotosComponent implements OnInit {
   public auth2: any;
 
   ngOnInit() {
+    console.log("ngOnInit()");
     (window as any).onSignIn = this.onSignIn;
   }
 

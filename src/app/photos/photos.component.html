@@ -1,9 +1,16 @@
 <mat-card class="head-card">
-    <mat-icon class="header-image">camera_alt</mat-icon>
-    My Pics
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon class="header-image">camera_alt</mat-icon>
+    </div>
+    <mat-card-title>My Pictures
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-actions>
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  </mat-card-actions>
 </mat-card>
-<br/>
+<br />
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="2% grid" fxLayoutAlign="space-evenly center">
   <div>
     <mat-card class="card-picture">
