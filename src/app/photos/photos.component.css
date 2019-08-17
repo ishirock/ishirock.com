@@ -10,3 +10,12 @@
     image-rendering: crisp-edges;
     align-content: center;
 }
+
+.head-card{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  align-content: center;
+  vertical-align: top;
+  font-size: x-large;
+  border: 0px;
+}
