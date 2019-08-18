@@ -13,7 +13,7 @@
         <mat-list class="list-nav">
             <ng-container *ngFor="let source of mSources">
                 <mat-list-item class="list-item" *ngIf="source.category=='technology'"
-                    (click)="searchArticles(source.id);">
+                    (click)="searchArticles(source.id);drawer.toggle()">
                     <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ source.id +'.png)'}"
                         class="header-image"></div>
                     <span class="source-name"> {{source.name}}</span>
