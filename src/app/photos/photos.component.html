@@ -3,7 +3,7 @@
     <div mat-card-avatar>
       <mat-icon class="header-image">camera_alt</mat-icon>
     </div>
-    <mat-card-title>My Pictures
+    <mat-card-title>My Photo Albums
     </mat-card-title>
   </mat-card-header>
   <mat-card-actions>
@@ -11,6 +11,20 @@
   </mat-card-actions>
 </mat-card>
 <br />
+<div class="drawer-content">
+<mat-card class="photos-card"  *ngFor="let album of albums">
+  <mat-card-header>
+      <mat-card-title class="title">{{album.title}}</mat-card-title>
+  </mat-card-header>
+  <div align="center"><img card-picture class="card-picture" src={{album.coverPhotoBaseUrl}} alt=""></div>
+
+  <mat-card-content>
+      <p>
+          Number of Photos: {{album.mediaItemsCount}}
+      </p>
+  </mat-card-content>
+</mat-card>
+</div>
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="2% grid" fxLayoutAlign="space-evenly center">
   <div>
     <mat-card class="card-picture">

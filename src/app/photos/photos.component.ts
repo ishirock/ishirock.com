@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
-import { Observable, throwError } from "rxjs";
+import { Observable, throwError, Subscription, timer } from "rxjs";
 import { tap, catchError } from "rxjs/operators";
+import { Album } from './album';
 
 declare const gapi: any;
 
@@ -17,9 +18,11 @@ export class PhotosComponent implements OnInit {
 
   private access_token: any;
 
-  private albums: any;
+  albums: Album[];
+
 
   ngOnInit() {
+  
   }
 
   ngAfterViewInit() {
@@ -31,7 +34,7 @@ export class PhotosComponent implements OnInit {
     });
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private cdRef: ChangeDetectorRef, private http: HttpClient) {
     gapi.load('auth2', function () {
       gapi.auth2.init();
     });
@@ -45,11 +48,11 @@ export class PhotosComponent implements OnInit {
         console.log(googleUser.getBasicProfile());
         this.access_token = googleUser.getAuthResponse().access_token;
         console.log(this.access_token);
+        this.getAlbums();
       });
     });
   }
 
-  
   getAlbums() {
     console.log("In GetAlbums");
     const url: string = "https://photoslibrary.googleapis.com/v1/albums";
@@ -57,22 +60,29 @@ export class PhotosComponent implements OnInit {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer' + this.access_token
+        'Authorization': 'Bearer ' + this.access_token
       })
     };
-    console.log(this.http.get(url, httpOptions));
+    this.http.get<Album[]>(url, httpOptions)
+      .subscribe(
+        (data) => {
+          this.albums = data && data["albums"];
+          console.log(JSON.stringify(data));
+          this.cdRef.detectChanges();
+        }
+      );
   }
 
-  private handleError(err: HttpErrorResponse){
+  private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
-    if (err.error instanceof ErrorEvent){
-        errorMessage = `An error occured: ${err.error.message}`;
-    }else{
-        errorMessage = `Server returned code: ${err.status}, error message is ${err.message}`;            
+    if (err.error instanceof ErrorEvent) {
+      errorMessage = `An error occured: ${err.error.message}`;
+    } else {
+      errorMessage = `Server returned code: ${err.status}, error message is ${err.message}`;
     }
-    console.log (errorMessage);
-    return throwError(errorMessage);        
-}
+    console.log(errorMessage);
+    return throwError(errorMessage);
+  }
 
 
 }
