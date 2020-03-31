@@ -41,7 +41,6 @@ export class PhotosComponent implements OnInit {
   }
 
   onSignIn(googleUser: any) {
-    console.log("googleLogin");
     let googleAuth = gapi.auth2.getAuthInstance();
     googleAuth.then(() => {
       googleAuth.signIn({ scope: 'profile email' }).then(googleUser => {
@@ -54,7 +53,6 @@ export class PhotosComponent implements OnInit {
   }
 
   getAlbums() {
-    console.log("In GetAlbums");
     const url: string = "https://photoslibrary.googleapis.com/v1/albums";
 
     const httpOptions = {
@@ -67,10 +65,14 @@ export class PhotosComponent implements OnInit {
       .subscribe(
         (data) => {
           this.albums = data && data["albums"];
-          console.log(JSON.stringify(data));
           this.cdRef.detectChanges();
         }
       );
+  }
+
+  getPhotos(album: Album){
+    console.log("In Photos");
+    console.log(album.id + " " + album.title);
   }
 
   private handleError(err: HttpErrorResponse) {

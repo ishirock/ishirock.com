@@ -4,7 +4,10 @@
     align-items: center;
   }
 
-  .card-image {
+.div-center {
+  align-content: center;
+}
+.card-image {
     max-width: 100%;
     align-self: center;
     image-rendering: crisp-edges;
@@ -24,12 +27,13 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: stretch;
+  align-content: center;
 }
 
 .photos-card{
-  max-width: 400px;
+  max-width: 50%;
   align-content: center;
   align-items: center;
-  margin: 5px;
+  margin: 10px;
 }

@@ -3,52 +3,83 @@
     <div mat-card-avatar>
       <mat-icon class="header-image">camera_alt</mat-icon>
     </div>
-    <mat-card-title>My Photo Albums
+    <mat-card-title>Sign In with your Google ID to view your Google Photo Albums
     </mat-card-title>
   </mat-card-header>
   <mat-card-actions>
-    <div id="my-signin2"></div>
+    <div id="my-signin2"> </div>
   </mat-card-actions>
 </mat-card>
 <br />
 <div class="drawer-content">
-<mat-card class="photos-card"  *ngFor="let album of albums">
-  <mat-card-header>
+  <mat-card class="photos-card" *ngFor="let album of albums">
+    <mat-card-header>
       <mat-card-title class="title">{{album.title}}</mat-card-title>
-  </mat-card-header>
-  <div align="center"><img card-picture class="card-picture" src={{album.coverPhotoBaseUrl}} alt=""></div>
+    </mat-card-header>
+    <div align="center"><img card-picture class="card-picture" src={{album.coverPhotoBaseUrl}} alt=""></div>
 
-  <mat-card-content>
+    <mat-card-content>
       <p>
-          Number of Photos: {{album.mediaItemsCount}}
+        Number of Photos: {{album.mediaItemsCount}}
       </p>
-  </mat-card-content>
-</mat-card>
+    </mat-card-content>
+    <mat-card-actions class="action-buttons">
+      <a mat-button (click)="getPhotos(album)">
+        <mat-icon>more_horiz</mat-icon>
+      </a>
+    </mat-card-actions>
+  </mat-card>
 </div>
-<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="2% grid" fxLayoutAlign="space-evenly center">
-  <div>
-    <mat-card class="card-picture">
-      <img mat-card-image class="img" src="assets/photos/Ishan4.JPG" />
-    </mat-card>
-  </div>
-  <div>
-    <mat-card class="card-picture">
-      <img mat-card-image class="img" src="assets/photos/Ishan3.png" />
-    </mat-card>
-  </div>
-  <div>
-    <mat-card class="card-picture">
-      <img mat-card-image class="img" src="assets/photos/Ishan2.png" />
-    </mat-card>
-  </div>
-  <div>
-    <mat-card class="card-picture">
-      <img mat-card-image class="img" src="assets/photos/IMG_6751.JPG" />
-    </mat-card>
-  </div>
-  <div>
-    <mat-card class="card-picture">
-      <img mat-card-image class="img" src="assets/photos/IMG_6753.JPG" />
-    </mat-card>
-  </div>
+<div class="drawer-content">
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2010.jpg" />
+  </mat-card>
+
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2010-1.jpg" />
+  </mat-card>
+
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2011.jpg" />
+  </mat-card>
+
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2012.JPG" />
+  </mat-card>
+
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2012-1.JPG" />
+  </mat-card>
+
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2013.JPG" />
+  </mat-card>
+
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2013-1.JPG" />
+  </mat-card>
+
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2015.jpg" />
+  </mat-card>
+
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2015-1.jpg" />
+  </mat-card>
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2015-2.jpg" />
+  </mat-card>
+
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2016.jpg" />
+  </mat-card>
+
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2017-1.JPG" />
+  </mat-card>
+
+  <mat-card class="photos-card">
+    <img mat-card-image class="card-picture" src="assets/photos/2017.jpg" />
+  </mat-card>
+
 </div>

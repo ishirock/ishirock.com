@@ -3,16 +3,17 @@
   }
   
   .news-card{
-    max-width: 800px;
+    width: 30%;
+    height: auto;
     align-content: center;
     align-items: center;
-    margin: 5px;
+    margin: 10px;
   }
 
   .head-card{
       text-align: center;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      align-content: center;
+      align-content: left;
       vertical-align: top;
       font-size: x-large;
   }
@@ -21,13 +22,19 @@
     background-size: cover;
   }
   
-  .title{
+  .card-title{
       font-weight: bold;
+      font-size: small;
   }
   
-  .img-article{
-    max-width: 450px;  
-    max-height: 350px;
+  .card-content{
+    font-weight: lighter;
+    font-size: smaller;
+}
+  .image-card{
+    max-width: 160px;  
+    max-height: 120px;
+    align-self: center;
   }
   
   .action-buttons{
@@ -39,16 +46,25 @@
       height: auto;
       margin: 10px;
       background-color: white;
+      align-self: center;
   }
   
   .drawer-content {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      align-items: stretch;
+      flex-wrap: wrap;
+  }
+
+  .div-center{
+      align-content: center;
+      align-items: center;
+      align-self: center;
   }
   
   .drawer {
       padding: 20px;
+
   }
   
   .source-name {
