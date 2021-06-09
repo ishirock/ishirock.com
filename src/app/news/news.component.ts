@@ -11,20 +11,55 @@ export class NewsComponent implements OnInit {
   
   mArticles: Array<any>;
   mSources: Array<any>;
+  bArticles: Array<any>;
+  bCategories: Array<any>;
 
   constructor(private newsapi: NewsApiService) {
   }
 
   ngOnInit() {
-    //load articles
-    this.newsapi.initArticles().subscribe(data => this.mArticles = data['articles']);
-    //load news sources
-    this.newsapi.initSources().subscribe(data => this.mSources = data['sources']);
+    
+    this.newsapi.newsArticles().subscribe((result) =>{
+      this.bArticles = result['value'];
+      console.log(this.bArticles);
+    })
+
+    this.bCategories = [
+      {
+        "id": "Business",
+        "category": "Business",
+        "market": "en-IN",
+    },
+    {
+        "id": "ScienceAndTechnology",
+        "category": "ScienceAndTechnology",
+        "language": "en-IN",
+    },
+    {
+      "id": "Sports",
+      "category": "Sports",
+      "language": "en-IN",
+    },
+    {
+      "id": "Entertainment",
+      "category": "Entertainment",
+      "language": "en-IN",
+    },
+    {
+      "id": "Politics",
+      "category": "Politics",
+      "language": "en-IN",
+    },
+    ]
+
   }
 
   searchArticles(source) {
     console.log("selected source is: " + source);
-    this.newsapi.getArticlesByID(source).subscribe(data => this.mArticles = data['articles']);
+    this.newsapi.getBArticleByCategory(source).subscribe((result) =>{
+      this.bArticles = result['value'];
+      console.log(this.bArticles);
+    })
   }
 
 }

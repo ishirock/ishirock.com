@@ -4,33 +4,30 @@
             <mat-icon class="toc-icon" (click)="drawer.toggle()">toc</mat-icon>
         </div>
         <mat-card-title>
-            Techology News
+            News
         </mat-card-title>
     </mat-card-header>
 </mat-card>
 <mat-drawer-container class="news-container" [hasBackdrop]="false" autosize>
     <mat-drawer #drawer mode="side" class="drawer">
         <mat-list class="list-nav">
-            <ng-container *ngFor="let source of mSources">
+            <ng-container *ngFor="let source of bCategories">
                 <mat-list-item class="list-item"
-                    (click)="searchArticles(source.id)">
-                    <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ source.id +'.png)'}"
-                        class="header-image"></div>
-                    <span class="source-name"> {{source.name}}</span>
+                    (click)="searchArticles(source.id)">                    
+                    <span class="source-name"> {{source.category}}</span>
                 </mat-list-item>
             </ng-container>
         </mat-list>
     </mat-drawer>
     <mat-drawer-content class="drawer-content">
-        <mat-card class="news-card" *ngFor="let article of mArticles">
+        <mat-card class="news-card" *ngFor="let article of bArticles">
             <mat-card-header>
-                <div mat-card-avatar
-                    [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}"
-                    class="header-image"></div>
-                <mat-card-title class="card-title">{{article.title}}</mat-card-title>
-                <mat-card-subtitle>{{article.source.name}}</mat-card-subtitle>
-            </mat-card-header>
-            <img class="image-card" src={{article.urlToImage}} alt=""/>           
+                <div *ngIf='article.provider[0].thumbnail' mat-card-avatar [ngStyle]="{'background-image': 'url('+ article.provider[0].image.thumbnail.contentUrl +')'}"
+                        class="header-image"></div>   
+                <mat-card-title class="card-title">{{article.name}}</mat-card-title>
+                <mat-card-subtitle>{{article.provider[0].name}}</mat-card-subtitle>
+            </mat-card-header>            
+            <!--<div [ngStyle]="{'background-image':'url('+ article.image.thumbnail.contentUrl +')'}"></div>    -->
             <mat-card-content class="card-content">
                 <p>
                     {{article.description}}

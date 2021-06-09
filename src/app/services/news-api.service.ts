@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +11,19 @@ export class NewsApiService {
 
   constructor(private http: HttpClient) { }
 
-  initSources() {
-    return this.http.get('https://newsapi.org/v2/sources?category=technology&language=en&apiKey=' + this.api_key);
+  newsURl = "https://api.bing.microsoft.com/v7.0/news";
+
+
+
+  newsArticles():Observable<any>{
+    const headers = new HttpHeaders().set("Ocp-Apim-Subscription-Key", "5f717f8b1ea648d3bb0f822619b35976");
+    return this.http.get(this.newsURl,{headers});
   }
 
-  initArticles() {
-    return this.http.get('https://newsapi.org/v2/top-headlines?category=technology&country=us&apiKey=' + this.api_key);
-  }
-  
-  getArticlesByID(source: String) {
-    return this.http.get('https://newsapi.org/v2/top-headlines?sources=' + source + '&apiKey=' + this.api_key);
+  getBArticleByCategory(category: String):Observable<any>{
+    const headers = new HttpHeaders().set("Ocp-Apim-Subscription-Key", "5f717f8b1ea648d3bb0f822619b35976");
+    var url = this.newsURl + "/search?category="+category;
+    console.log(url);
+    return this.http.get(url, {headers});
   }
 }

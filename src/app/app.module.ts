@@ -12,12 +12,14 @@ import { AppComponent } from './app.component';
 import { NewsApiService} from './services/news-api.service';
 import { PhotosComponent } from './photos/photos.component';
 import { NewsComponent } from './news/news.component';
+import {SafeHtmlPipe} from './news/SafeHtmlPipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotosComponent,
-    NewsComponent
+    NewsComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,7 @@ import { NewsComponent } from './news/news.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    FlexLayoutModule,
+    FlexLayoutModule
   ],
   providers: [NewsApiService],
   bootstrap: [AppComponent]
