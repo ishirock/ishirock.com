@@ -22,12 +22,13 @@
     <mat-drawer-content class="drawer-content">
         <mat-card class="news-card" *ngFor="let article of bArticles">
             <mat-card-header>
-                <div *ngIf='article.provider[0].thumbnail' mat-card-avatar [ngStyle]="{'background-image': 'url('+ article.provider[0].image.thumbnail.contentUrl +')'}"
+                <div mat-card-avatar [ngStyle]="{'background-image': 'url('+ article.provider[0].image.thumbnail.contentUrl +')'}"
                         class="header-image"></div>   
                 <mat-card-title class="card-title">{{article.name}}</mat-card-title>
                 <mat-card-subtitle>{{article.provider[0].name}}</mat-card-subtitle>
             </mat-card-header>            
             <!--<div [ngStyle]="{'background-image':'url('+ article.image.thumbnail.contentUrl +')'}"></div>    -->
+            <img mat-card-image class="image-card" src="{{article.image.thumbnail.contentUrl}}" alt="">
             <mat-card-content class="card-content">
                 <p>
                     {{article.description}}

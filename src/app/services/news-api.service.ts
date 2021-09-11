@@ -22,7 +22,7 @@ export class NewsApiService {
 
   getBArticleByCategory(category: String):Observable<any>{
     const headers = new HttpHeaders().set("Ocp-Apim-Subscription-Key", "5f717f8b1ea648d3bb0f822619b35976");
-    var url = this.newsURl + "/search?category="+category;
+    var url = this.newsURl + "?mkt=en-in&category="+category;
     console.log(url);
     return this.http.get(url, {headers});
   }
